@@ -3,6 +3,7 @@ import { withSentryRouting } from '@sentry/react'
 import styled from 'styled-components'
 import { Header } from './Header'
 import { Route, Switch, useHistory } from 'react-router-dom'
+import { PrimaryButton, SecondaryButton, TertiaryButton } from './Buttons'
 
 const AppContent = styled.div`
 	width: 100%;
@@ -55,23 +56,33 @@ export const App: FunctionComponent<{ children?: never }> = () => {
 				<Switch>
 					<SentryRoute path={landingStep.paths} exact>
 						<p>Hello</p>
-						<button onClick={() => push(consentStep.paths[0])}>Next</button>
+						<PrimaryButton onClick={() => push(consentStep.paths[0])}>
+							Next
+						</PrimaryButton>
 					</SentryRoute>
 					<SentryRoute path={consentStep.paths} exact>
 						<p>Consent</p>
-						<button onClick={() => push(nextStep.paths[0])}>Next</button>
+						<SecondaryButton onClick={() => push(nextStep.paths[0])}>
+							Next
+						</SecondaryButton>
 					</SentryRoute>
 					<SentryRoute path={nextStep.paths} exact>
 						<p>Next</p>
-						<button onClick={() => push(bankStep.paths[0])}>Next</button>
+						<TertiaryButton onClick={() => push(bankStep.paths[0])}>
+							Next
+						</TertiaryButton>
 					</SentryRoute>
 					<SentryRoute path={bankStep.paths} exact>
 						<p>Banking</p>
-						<button onClick={() => push(consentStep.paths[0])}>Next</button>
+						<SecondaryButton onClick={() => push(consentStep.paths[0])}>
+							Next
+						</SecondaryButton>
 					</SentryRoute>
 					<SentryRoute path="/" exact>
 						<p>Initial</p>
-						<button onClick={() => push(landingStep.paths[0])}>Next</button>
+						<PrimaryButton onClick={() => push(landingStep.paths[0])}>
+							Next
+						</PrimaryButton>
 					</SentryRoute>
 				</Switch>
 			</AppContent>

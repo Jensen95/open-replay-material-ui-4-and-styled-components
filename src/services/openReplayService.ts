@@ -33,7 +33,7 @@ class OpenReplayService {
 			__DISABLE_SECURE_MODE: true,
 		})
 
-		this.tracker.start()
+		this.tracker.start({ userID: 'test' })
 		this.tracker.use(trackerAssist())
 		trackingService.events.subscribe((event) => {
 			this.tracker?.event(event.eventName, event.additional)
